@@ -2,9 +2,11 @@ const express = require("express");
 const app = express();
 const port = 8081;
 const fs = require("fs");
+const cors = require('cors')
 
 app.use(express.json());
 app.use(express.static("public"));
+app.use(cors());
 
 app.get("/", (req, res) => res.send("Welcome!"));
 
