@@ -1,15 +1,11 @@
 <template>
-  <RouterViewContainer />
+  <router-view/>
 </template>
 
 <script>
-import RouterViewContainer from './RouterViewContainer.vue'
 
 export default {
-  name: 'App',
-  components: {
-    RouterViewContainer
-  }
+  name: 'App'
 }
 </script>
 
