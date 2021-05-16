@@ -1,8 +1,16 @@
 <template>
   <div>
     <PageHeader heading="Lagersaldo" />
-    <div v-for="product in products" v-bind:key="product">
-      <p>{{product.name}}</p>
+    <div v-for="product in products" v-bind:key="product" class="product-container">
+      <p style="font-weight: bold;">{{product.name}}</p>
+      <div class="product-information-container">
+        <p>Produktnr: {{product.productnr}}</p>
+        <p>Pris: {{product.price}}kr</p>
+      </div>
+      <p>Antal i lager:</p>
+      <p>Cupertino: {{product.stock.cupertino}}</p>
+      <p>Norrköping: {{product.stock.norrkoping}}</p>
+      <p>Frankurt: {{product.stock.frankurt}}</p>
     </div>
   </div>
 </template>
@@ -35,9 +43,14 @@ export default {
 </script>
 
 <style lang="scss">
-.page-heading-container {
-  width: 100%;
-  border-bottom: 5px solid red;
+.product-container {
+  margin: 20px;
+  p {
+    margin: 0;
+  }
+}
+.product-information-container {
+  display: flex;
 }
 
 </style>

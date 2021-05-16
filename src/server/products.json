@@ -5,9 +5,9 @@
     "productnr": "P001", 
     "price": 8900, 
     "stock": {
-      "Cupertino": 125000, 
-      "Norrköping": 55000, 
-      "Frankurt": 1700
+      "cupertino": 125000, 
+      "norrkoping": 55000, 
+      "frankurt": 1700
     }
   },
   {
@@ -16,20 +16,20 @@
     "productnr": "P002", 
     "price": 5700, 
     "stock": {
-      "Cupertino": 26500, 
-      "Norrköping": 104300, 
-      "Frankurt": 72400
+      "cupertino": 26500, 
+      "norrkoping": 104300, 
+      "frankurt": 72400
     }
   },
   {
     "id": 3, 
     "name": "Päronklocka", 
-    "productnumber": "P003", 
+    "productnr": "P003", 
     "price": 1100, 
     "stock": {
-      "Cupertino": 90000, 
-      "Norrköping": 43000, 
-      "Frankurt": 5000
+      "cupertino": 90000, 
+      "norrkoping": 43000, 
+      "frankurt": 5000
     }
   }
 ]

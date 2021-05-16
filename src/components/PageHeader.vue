@@ -17,7 +17,7 @@ export default {
   border-bottom: 1px solid #699461;
   p {
     color: #699461;
-    font-size: 24px;
+    font-size: 26px;
     margin-left: 10px;
   }
 }
