@@ -1,6 +1,6 @@
 <template>
   <WebMenu />
-  <router-view />
+  <router-view class="router-container"/>
 </template>
 
 <script>
@@ -22,5 +22,8 @@ export default {
   color: #2c3e50;
   display: flex;
   flex-direction: row;
+}
+.router-container {
+  width: 80vw;
 }
 </style>
