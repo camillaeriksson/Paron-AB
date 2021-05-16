@@ -1,6 +1,7 @@
-import { createWebHistory, createRouter } from "vue-router";
-import Stock from "../components/Stock.vue";
-import Ingoing from "../components/Ingoing.vue";
+import { createWebHistory, createRouter } from "vue-router"
+import Stock from "../components/Stock.vue"
+import Ingoing from "../components/Ingoing.vue"
+import Outgoing from "../components/Outgoing.vue"
 
 const routes = [
   {
@@ -17,11 +18,16 @@ const routes = [
     name: "ingoing",
     component: Ingoing,
   },
-];
+  {
+    path: "/outgoing",
+    name: "outgoing",
+    component: Outgoing,
+  },
+]
 
 const router = createRouter({
   history: createWebHistory(),
   routes,
-});
+})
 
-export default router;
+export default router
