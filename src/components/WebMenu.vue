@@ -1,6 +1,9 @@
 <template>
   <div class="web-menu-container">
-    <p>Web Menu</p>
+    <img src="../assets/logo.svg">
+    <router-link to="/stock">Lagersaldo</router-link>
+    <router-link to="/stock">Ingående</router-link>
+    <router-link to="/stock">Utgående</router-link>
   </div>
 </template>
 
@@ -14,7 +17,14 @@ export default {
 .web-menu-container {
   height: 100vh;
   width: 20vw;
-  background: red;
+  background: #699461;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  img {
+    margin-top: 40px;
+    width: 150px;
+  }
 }
 
 </style>
