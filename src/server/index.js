@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const port = 3000;
+const port = 8081;
 const fs = require("fs");
 
 app.use(express.json());
@@ -9,7 +9,7 @@ app.use(express.static("public"));
 app.get("/", (req, res) => res.send("Welcome!"));
 
 app.get("/products", (req, res) => {
-  let userData = fs.readFileSync("users.json");
+  let userData = fs.readFileSync("products.json");
   let users = JSON.parse(userData);
   res.send(users);
 });
