@@ -1,3 +1,17 @@
 GET http://localhost:8081/products
 
 ###
+
+PUT http://localhost:8081/products/3/ingoing
+Content-type: application/json
+
+{
+    "name": "Päronklocka", 
+    "productnr": "P003", 
+    "price": 1100, 
+    "stock": {
+      "cupertino": 90000, 
+      "norrkoping": 43000, 
+      "frankurt": 0
+    }
+}
