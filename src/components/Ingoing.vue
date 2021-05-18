@@ -1,7 +1,11 @@
 <template>
   <div>
-  <v-select />
-    <input v-model="message" placeholder="edit me">
+  <select v-model="selected">
+    <option disabled value="">Please select one</option>
+    <option>Cupertino</option>
+    <option>Norrköping</option>
+    <option>Frankurt</option>
+  </select>
     <button @click="submit()">Submit</button>
   </div>
 </template>
@@ -11,7 +15,7 @@ export default {
   name: 'ingoing',
   data() {
     return {
-      message: ''
+      selected: ''
     }
   },
   methods: {
