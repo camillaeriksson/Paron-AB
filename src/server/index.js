@@ -29,6 +29,26 @@ app.patch("/products/:id/ingoing", (req, res) => {
   fs.writeFileSync("products.json", JSON.stringify(products))
 });
 
+// Detract stock from the chosen product and warehouse
+app.patch("/products/:id/outgoing", (req, res) => {
+  const productData = fs.readFileSync("products.json");
+  let products = JSON.parse(productData);
+  const quantityToRemove = req.body.quantityToAdd
+  const warehouse = req.body.warehouse
+  const productIndex = products.findIndex(
+    (product) => product.id === parseInt(req.params.id)
+  );
+  // If the product id could not be found
+  if (productIndex === -1) {
+    res.status(404).send("The product was not found");
+  } else {
+    // Detract the given quantity from the given warehouse stock
+    products[productIndex].stock[warehouse] -= quantityToRemove
+  }
+  res.send();
+  fs.writeFileSync("products.json", JSON.stringify(products))
+});
+
 // Get all products 
 app.get("/products", (req, res) => {
   const productData = fs.readFileSync("products.json")
