@@ -13,15 +13,17 @@ app.use(cors());
 app.patch("/products/:id/ingoing", (req, res) => {
   const productData = fs.readFileSync("products.json");
   let products = JSON.parse(productData);
-  const newQuantity = req.body.ingoingQuantity
+  const quantityToAdd = req.body.ingoingQuantity
   const warehouse = req.body.warehouse
   const productIndex = products.findIndex(
     (product) => product.id === parseInt(req.params.id)
   );
+  // If the product id could not be found
   if (productIndex === -1) {
     res.status(404).send("The product was not found");
   } else {
-    products[productIndex].stock[warehouse] += newQuantity
+    // Add the given quantity to the given warehouse stock
+    products[productIndex].stock[warehouse] += quantityToAdd
   }
   res.send();
   fs.writeFileSync("products.json", JSON.stringify(products))
@@ -33,7 +35,5 @@ app.get("/products", (req, res) => {
   const products = JSON.parse(productData)
   res.send(products)
 });
-
-app.get("/", (req, res) => res.send("Welcome!"))
 
 app.listen(port, () => console.log(`Listening at http://localhost:${port}`))
