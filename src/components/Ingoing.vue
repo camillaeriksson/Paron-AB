@@ -17,30 +17,31 @@ import InputText from 'primevue/inputtext'
 export default {
   name: 'ingoing',
   data() {
-	return {
-    quantity: null,
-    selectedProduct: null,
-		selectedWarehouse: null,
-		warehouses: [
-			{name: 'Cupertino', value: 'cupertino'},
-			{name: 'Norrköping', value: 'norrkoping'},
-			{name: 'Frankurt', value: 'frankurt'}
-		],
-    products: [
-			{name: 'jTelefon', value: 1},
-			{name: 'jPlatta', value: 2},
-			{name: 'Päronklocka', value: 3}
-		]
-	}
-},
-components: {
-  Dropdown,
-  InputText
-},
+    return {
+      quantity: null,
+      selectedProduct: null,
+      selectedWarehouse: null,
+      warehouses: [
+        {name: 'Cupertino', value: 'cupertino'},
+        {name: 'Norrköping', value: 'norrkoping'},
+        {name: 'Frankurt', value: 'frankurt'}
+      ],
+      products: [
+        {name: 'jTelefon', value: 1},
+        {name: 'jPlatta', value: 2},
+        {name: 'Päronklocka', value: 3}
+      ]
+    }
+  },
+  components: {
+    Dropdown,
+    InputText
+  },
   methods: {
     submit() {
       console.log(this.selectedWarehouse)
       console.log(this.selectedProduct)
+      console.log(this.quantity)
     }
   }
 }

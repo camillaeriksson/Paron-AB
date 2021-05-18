@@ -17,18 +17,17 @@
 
 <script>
 import axios from "axios"
-
 import PageHeader from './PageHeader.vue'
 
 export default {
   name: 'stock',
-    components: {
-    PageHeader
-  },
   data() {
     return {
       products: []
     }
+  },
+  components: {
+    PageHeader
   },
   created() {
     this.getAllProducts()
