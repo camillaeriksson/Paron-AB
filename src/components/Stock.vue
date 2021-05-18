@@ -2,7 +2,29 @@
   <div>
     <PageHeader heading="Lagersaldo" />
     <div v-for="product in products" v-bind:key="product" class="product-container">
-      <p style="font-weight: bold;">{{product.name}}</p>
+      <Card>
+        <template #header>
+          <img alt="user header" src="demo/images/usercard.png">
+        </template>
+        <template #title>
+          {{product.name}}
+        </template>
+        <template #content>
+          <p style="font-weight: bold;">Antal i lager</p>
+          <p>Cupertino: {{product.stock.cupertino}} st</p>
+          <p>Norrköping: {{product.stock.norrkoping}} st</p>
+          <p>Frankurt: {{product.stock.frankurt}} st</p>
+        </template>
+      </Card>
+      
+      
+      
+      
+      
+      
+      
+      
+      <!--<p style="font-weight: bold;">{{product.name}}</p>
       <div class="product-information-container">
         <p>Produktnr: {{product.productnr}}</p>
         <p>Pris: {{product.price}}kr</p>
@@ -10,7 +32,7 @@
       <p>Antal i lager:</p>
       <p>Cupertino: {{product.stock.cupertino}}</p>
       <p>Norrköping: {{product.stock.norrkoping}}</p>
-      <p>Frankurt: {{product.stock.frankurt}}</p>
+      <p>Frankurt: {{product.stock.frankurt}}</p>-->
     </div>
   </div>
 </template>
@@ -18,6 +40,7 @@
 <script>
 import axios from 'axios'
 import PageHeader from './PageHeader.vue'
+import Card from 'primevue/card'
 
 export default {
   name: 'stock',
@@ -27,7 +50,8 @@ export default {
     }
   },
   components: {
-    PageHeader
+    PageHeader,
+    Card
   },
   created() {
     this.getAllProducts()
@@ -43,13 +67,14 @@ export default {
 
 <style lang="scss">
 .product-container {
-  margin: 20px
+  margin: 20px;
+  width: 200px;
   p {
-    margin: 0
+    margin: 0;
   }
 }
 .product-information-container {
-  display: flex
+  display: flex;
 }
 
 </style>
