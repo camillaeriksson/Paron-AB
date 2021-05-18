@@ -43,7 +43,8 @@ export default {
   },
   methods: {
     submit() {
-      axios.patch(`http://localhost:8081/products/${this.selectedProductId}/ingoing`, { quantityToAdd: parseInt(`${this.quantity}`), warehouse: `${this.selectedWarehouse}` })
+      axios.patch(`http://localhost:8081/products/${this.selectedProductId}/ingoing`, 
+      { quantityToAdd: parseInt(`${this.quantity}`), warehouse: `${this.selectedWarehouse}` })
       // .then(response => (this.products = response.data))
     }
   }
