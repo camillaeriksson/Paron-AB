@@ -13,7 +13,7 @@ app.use(cors());
 app.patch("/products/:id/ingoing", (req, res) => {
   const productData = fs.readFileSync("products.json");
   let products = JSON.parse(productData);
-  const quantityToAdd = req.body.ingoingQuantity
+  const quantityToAdd = req.body.quantityToAdd
   const warehouse = req.body.warehouse
   const productIndex = products.findIndex(
     (product) => product.id === parseInt(req.params.id)

@@ -6,7 +6,7 @@ PATCH http://localhost:8081/products/3/ingoing
 Content-type: application/json
 
 {
-    "ingoingQuantity": 5,
+    "quantityToAdd": 5,
     "warehouse": "norrkoping"
 }
 
