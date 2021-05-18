@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Dropdown v-model="selectedProduct" :options="products" optionLabel="name" optionValue="value" placeholder="Välj en produkt" />
+    <Dropdown v-model="selectedProductId" :options="products" optionLabel="name" optionValue="value" placeholder="Välj en produkt" />
     <Dropdown v-model="selectedWarehouse" :options="warehouses" optionLabel="name" optionValue="value" placeholder="Välj ett lager" />
     <span class="p-float-label">
       <InputText id="quantity" type="number" v-model="quantity" />
@@ -11,6 +11,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 import Dropdown from 'primevue/dropdown'
 import InputText from 'primevue/inputtext'
 
@@ -19,7 +20,7 @@ export default {
   data() {
     return {
       quantity: null,
-      selectedProduct: null,
+      selectedProductId: null,
       selectedWarehouse: null,
       warehouses: [
         {name: 'Cupertino', value: 'cupertino'},
@@ -39,9 +40,8 @@ export default {
   },
   methods: {
     submit() {
-      console.log(this.selectedWarehouse)
-      console.log(this.selectedProduct)
-      console.log(this.quantity)
+      axios.patch(`http://localhost:8081/products/${this.selectedProductId}/ingoing`, { quantityToAdd: parseInt(`${this.quantity}`), warehouse: `${this.selectedWarehouse}` })
+      // .then(response => (this.products = response.data))
     }
   }
 }

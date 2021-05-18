@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import axios from "axios"
+import axios from 'axios'
 import PageHeader from './PageHeader.vue'
 
 export default {
@@ -43,13 +43,13 @@ export default {
 
 <style lang="scss">
 .product-container {
-  margin: 20px;
+  margin: 20px
   p {
-    margin: 0;
+    margin: 0
   }
 }
 .product-information-container {
-  display: flex;
+  display: flex
 }
 
 </style>
