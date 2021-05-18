@@ -1,5 +1,6 @@
 <template>
   <div>
+    <PageHeader heading="Registrera ingående saldo" />
     <Dropdown v-model="selectedProductId" :options="products" optionLabel="name" optionValue="value" placeholder="Välj en produkt" />
     <Dropdown v-model="selectedWarehouse" :options="warehouses" optionLabel="name" optionValue="value" placeholder="Välj ett lager" />
     <span class="p-float-label">
@@ -14,6 +15,7 @@
 import axios from 'axios'
 import Dropdown from 'primevue/dropdown'
 import InputText from 'primevue/inputtext'
+import PageHeader from './PageHeader.vue'
 
 export default {
   name: 'ingoing',
@@ -36,7 +38,8 @@ export default {
   },
   components: {
     Dropdown,
-    InputText
+    InputText,
+    PageHeader
   },
   methods: {
     submit() {
