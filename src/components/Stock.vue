@@ -1,8 +1,8 @@
 <template>
   <div>
     <PageHeader heading="Lagersaldo" />
-    <div v-for="product in products" v-bind:key="product" class="product-container">
-      <Card>
+    <div class="p-d-flex p-flex-wrap">
+      <Card v-for="product in products" v-bind:key="product" class="product-card">
         <template #header>
           <img alt="user header" src="demo/images/usercard.png">
         </template>
@@ -66,15 +66,8 @@ export default {
 </script>
 
 <style lang="scss">
-.product-container {
+.product-card {
   margin: 20px;
   width: 200px;
-  p {
-    margin: 0;
-  }
 }
-.product-information-container {
-  display: flex;
-}
-
 </style>
