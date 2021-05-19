@@ -1,15 +1,23 @@
 <template>
-  <div>
+  <div class="p-d-flex p-flex-column p-ai-center" style="width: 100vw">
     <PageHeader :heading="$route.name === 'ingoing' ? 'Registrera ingående saldo' : 'Registrera utgående saldo'" />
-    <Dropdown v-model="selectedProductId" :options="products" optionLabel="name" optionValue="value" placeholder="Välj en produkt" />
-    <Dropdown v-model="selectedWarehouse" :options="warehouses" optionLabel="name" optionValue="value" placeholder="Välj ett lager" />
-    <span class="p-float-label">
-      <InputNumber id="quantity" :useGrouping="false" v-model="quantity" />
-      <label for="quantity">Antal</label>
-    </span>
-    <Button :disabled="selectedProductId === null || selectedWarehouse === null || quantity === null" label="Registrera" @click="submit()" />
-    <ConfirmDialog></ConfirmDialog>
-  </div>
+    <Card class="register-content-container">
+      <template #content>
+        <div class="p-d-flex p-flex-column p-ai-center">
+          <div class="p-d-flex p-jc-evenly" style="width: 100%;">
+            <Dropdown v-model="selectedProductId" :options="products" optionLabel="name" optionValue="value" placeholder="Välj en produkt" />
+            <Dropdown v-model="selectedWarehouse" :options="warehouses" optionLabel="name" optionValue="value" placeholder="Välj ett lager" />
+            <span class="p-float-label">
+              <InputNumber id="quantity" :useGrouping="false" v-model="quantity" />
+              <label for="quantity">Antal</label>
+            </span>
+          </div>
+          <Button :disabled="selectedProductId === null || selectedWarehouse === null || quantity === null" label="Registrera" @click="submit()" />
+        </div>
+        <ConfirmDialog></ConfirmDialog>
+      </template>
+    </Card>
+  </div>    
 </template>
 
 <script>
@@ -19,6 +27,7 @@ import InputNumber from 'primevue/inputnumber'
 import Button from 'primevue/button'
 import ConfirmDialog from 'primevue/confirmdialog'
 import PageHeader from './PageHeader.vue'
+import Card from 'primevue/card'
 
 export default {
   name: 'register-products',
@@ -43,6 +52,7 @@ export default {
     Dropdown,
     InputNumber,
     Button,
+    Card,
     ConfirmDialog,
     PageHeader
   },
@@ -83,6 +93,22 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss">
+.register-content-container {
+  width: 60%;
+  margin-top: 30px;
+  button {
+    margin: 20px;
+  }
+  .p-dropdown {
+    width: 30%;
+  }
+  .p-float-label {
+    width: 30%;
+  }
+  .p-inputnumber-input {
+    width: 30%;
+  }
+}
 
 </style>
