@@ -12,7 +12,7 @@
               <label for="quantity">Antal</label>
             </span>
           </div>
-          <Button :disabled="selectedProductId === null || selectedWarehouse === null || quantity === null" label="Registrera" @click="submit()" />
+          <Button class="p-button-success" :disabled="selectedProductId === null || selectedWarehouse === null || quantity === null" label="Registrera" @click="submit()" />
         </div>
         <ConfirmDialog></ConfirmDialog>
       </template>
