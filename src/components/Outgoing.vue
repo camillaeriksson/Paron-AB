@@ -7,7 +7,7 @@
       <InputNumber id="quantity" :useGrouping="false" v-model="quantity" />
       <label for="quantity">Antal</label>
     </span>
-    <button @click="submit()">Registrera</button>
+    <Button label="Registrera" @click="submit()" />
   </div>
 </template>
 
@@ -15,6 +15,7 @@
 import axios from 'axios'
 import Dropdown from 'primevue/dropdown'
 import InputNumber from 'primevue/inputnumber'
+import Button from 'primevue/button'
 import PageHeader from './PageHeader.vue'
 
 export default {
@@ -39,7 +40,8 @@ export default {
   components: {
     Dropdown,
     InputNumber,
-    PageHeader
+    PageHeader,
+    Button
   },
   methods: {
     submit() {
