@@ -54,6 +54,11 @@ export default {
         }
       }
     },
+    emptyFields() {
+      this.quantity = null
+      this.selectedProductId = null
+      this.selectedWarehouse = null
+    },
     submit() {
       const product = this.findName(this.selectedProductId, this.products)
       const warehouse = this.findName(this.selectedWarehouse, this.warehouses)
@@ -65,13 +70,12 @@ export default {
         accept: () => {
           axios.patch(`http://localhost:8081/products/${this.selectedProductId}/ingoing`, 
           { quantityToAdd: parseInt(`${this.quantity}`), warehouse: `${this.selectedWarehouse}` })
+          this.emptyFields()
         },
         reject: () => {
+          this.emptyFields()
         }
-      });
-      this.quantity = null
-      this.selectedProductId = null
-      this.selectedWarehouse = null
+      })
     }
   }
 }
