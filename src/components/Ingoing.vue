@@ -4,17 +4,17 @@
     <Dropdown v-model="selectedProductId" :options="products" optionLabel="name" optionValue="value" placeholder="Välj en produkt" />
     <Dropdown v-model="selectedWarehouse" :options="warehouses" optionLabel="name" optionValue="value" placeholder="Välj ett lager" />
     <span class="p-float-label">
-      <InputText id="quantity" type="number" v-model="quantity" />
+      <InputNumber id="quantity" :useGrouping="false" v-model="quantity" />
       <label for="quantity">Antal</label>
     </span>
-    <button @click="submit()">Skicka</button>
+    <button @click="submit()">Registrera</button>
   </div>
 </template>
 
 <script>
 import axios from 'axios'
 import Dropdown from 'primevue/dropdown'
-import InputText from 'primevue/inputtext'
+import InputNumber from 'primevue/inputnumber'
 import PageHeader from './PageHeader.vue'
 
 export default {
@@ -38,7 +38,7 @@ export default {
   },
   components: {
     Dropdown,
-    InputText,
+    InputNumber,
     PageHeader
   },
   methods: {
