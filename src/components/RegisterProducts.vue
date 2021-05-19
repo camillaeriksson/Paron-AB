@@ -1,6 +1,6 @@
 <template>
   <div>
-    <PageHeader heading="Registrera ingående saldo" />
+    <PageHeader :heading="$route.name === 'ingoing' ? 'Registrera ingående saldo' : 'Registrera utgående saldo'" />
     <Dropdown v-model="selectedProductId" :options="products" optionLabel="name" optionValue="value" placeholder="Välj en produkt" />
     <Dropdown v-model="selectedWarehouse" :options="warehouses" optionLabel="name" optionValue="value" placeholder="Välj ett lager" />
     <span class="p-float-label">
@@ -21,7 +21,7 @@ import ConfirmDialog from 'primevue/confirmdialog'
 import PageHeader from './PageHeader.vue'
 
 export default {
-  name: 'ingoing',
+  name: 'register-products',
   data() {
     return {
       quantity: null,
@@ -62,13 +62,15 @@ export default {
     submit() {
       const product = this.findName(this.selectedProductId, this.products)
       const warehouse = this.findName(this.selectedWarehouse, this.warehouses)
+      const endRoute = this.$route.name
       this.$confirm.require({
-        message: `Vill du registrera ${this.quantity} st ingående ${product} till lagret i ${warehouse}?`,
+        message: this.$route.name === 'ingoing' ? `Vill du registrera ${this.quantity} st ingående ${product} till lagret i ${warehouse}?` :
+        `Vill du registrera ${this.quantity} st utgående ${product} från lagret i ${warehouse}?`,
         header: 'Bekräfta',
         acceptLabel: 'Ja',
         rejectLabel: 'Nej',
         accept: () => {
-          axios.patch(`http://localhost:8081/products/${this.selectedProductId}/ingoing`, 
+          axios.patch(`http://localhost:8081/products/${this.selectedProductId}/${endRoute}`, 
           { quantityToAdd: parseInt(`${this.quantity}`), warehouse: `${this.selectedWarehouse}` })
           this.emptyFields()
         },

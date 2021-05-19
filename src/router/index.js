@@ -1,7 +1,6 @@
 import { createWebHistory, createRouter } from "vue-router"
 import Stock from "../components/Stock.vue"
-import Ingoing from "../components/Ingoing.vue"
-import Outgoing from "../components/Outgoing.vue"
+import RegisterProducts from "../components/RegisterProducts.vue"
 
 const routes = [
   {
@@ -16,12 +15,12 @@ const routes = [
   {
     path: "/ingoing",
     name: "ingoing",
-    component: Ingoing,
+    component: RegisterProducts,
   },
   {
     path: "/outgoing",
     name: "outgoing",
-    component: Outgoing,
+    component: RegisterProducts,
   },
 ]
 
