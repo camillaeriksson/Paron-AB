@@ -23,12 +23,31 @@
         </template>
       </Card>
       
-      
-    <DataTable :value="products">
-      <Column field="name" header="Produkt"></Column>
-      <Column field="stock.cupertino" header="Cupertino"></Column>
-      <Column field="stock.norrkoping" header="Norrköping"></Column>
-      <Column field="stock.frankurt" header="Frankurt"></Column>
+
+    <DataTable class="product-data-table" :value="products">
+      <Column field="name" header="Produkt">
+        <template #body="{data}">
+          <div class="p-d-flex p-flex-column">
+          {{data.name}}
+          <p>Produktnr: {{data.productnr}} Pris: {{data.price}} kr</p>
+          </div>
+        </template>
+      </Column>
+      <Column field="stock.cupertino" header="Cupertino">
+        <template #body="{data}">
+          {{data.stock.cupertino}} st
+        </template>
+      </Column>
+      <Column field="stock.norrkoping" header="Norrköping">
+        <template #body="{data}">
+          {{data.stock.norrkoping}} st
+        </template>
+      </Column>
+      <Column field="stock.frankurt" header="Frankurt">
+        <template #body="{data}">
+          {{data.stock.frankurt}} st
+        </template>
+      </Column>
     </DataTable>
       
       
@@ -81,6 +100,12 @@ export default {
 </script>
 
 <style lang="scss">
+.product-data-table {
+  p {
+    margin: 0;
+    font-size: 10px;
+  }
+}
 .product-card {
   margin: 20px;
   width: 230px;
