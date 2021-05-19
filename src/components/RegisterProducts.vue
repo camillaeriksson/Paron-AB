@@ -5,8 +5,8 @@
       <template #content>
         <div class="p-d-flex p-flex-column p-ai-center">
           <div class="p-d-flex p-jc-evenly" style="width: 100%;">
-            <Dropdown v-model="selectedProductId" :options="products" optionLabel="name" optionValue="value" placeholder="Välj en produkt" />
-            <Dropdown v-model="selectedWarehouse" :options="warehouses" optionLabel="name" optionValue="value" placeholder="Välj ett lager" />
+            <Dropdown v-model="selectedProductId" :options="products" optionLabel="name" optionValue="value" placeholder="Produkt" />
+            <Dropdown v-model="selectedWarehouse" :options="warehouses" optionLabel="name" optionValue="value" placeholder="Lager" />
             <span class="p-float-label">
               <InputNumber id="quantity" :useGrouping="false" v-model="quantity" />
               <label for="quantity">Antal</label>
@@ -95,7 +95,10 @@ export default {
 
 <style lang="scss">
 .register-content-container {
-  width: 60%;
+  @media (max-width: 768px) {
+    width: 90%;
+  }
+  width: 70%;
   margin-top: 30px;
   button {
     margin: 20px;

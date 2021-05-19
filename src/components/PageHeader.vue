@@ -18,7 +18,8 @@ export default {
   p {
     color: #699461;
     font-size: 26px;
-    margin-left: 10px;
+    margin-left: 30px;
+    font-weight: bold;
   }
 }
 </style>
