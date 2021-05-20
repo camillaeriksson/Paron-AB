@@ -48,9 +48,22 @@ export default {
 </script>
 
 <style lang="scss">
-.top-menu {
+.top-menu.p-menubar {
   @media (min-width: 961px) {
     display: none;
+  }
+  padding: 10px 20px;
+  background: #699461;
+  font-size: 20px;
+  .pi {
+    font-size: 30px;
+    color: white;
+  }
+  .p-menubar-button:hover {
+    background: none;
+  }
+  .p-menubar-button:hover {
+    box-shadow: none;
   }
 }
 .side-menu-container {
