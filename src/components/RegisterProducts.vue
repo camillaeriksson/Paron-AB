@@ -4,7 +4,7 @@
     <Card class="register-content-container p-shadow-5">
       <template #content>
         <div class="p-d-flex p-flex-column p-ai-center">
-          <div class="p-d-flex p-jc-evenly" style="width: 100%;">
+          <div class="p-d-flex p-jc-evenly p-flex-wrap inputs-container">
             <Dropdown v-model="selectedProductId" :options="products" optionLabel="name" optionValue="value" placeholder="Produkt" />
             <Dropdown v-model="selectedWarehouse" :options="warehouses" optionLabel="name" optionValue="value" placeholder="Lager" />
             <span class="p-float-label">
@@ -94,6 +94,9 @@ export default {
 </script>
 
 <style lang="scss">
+.inputs-container {
+  width: 100%;
+}
 .register-content-container {
   @media (max-width: 768px) {
     width: 90%;
@@ -103,14 +106,12 @@ export default {
   button {
     margin-top: 20px;
   }
-  .p-dropdown {
-    width: 30%;
+  .p-dropdown, .p-float-label, .p-inputnumber-input {
+  @media (max-width: 536px) {
+    margin: 10px 0;
   }
-  .p-float-label {
     width: 30%;
-  }
-  .p-inputnumber-input {
-    width: 30%;
+    min-width: 150px;
   }
 }
 .p-button.p-confirm-dialog-accept {
