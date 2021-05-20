@@ -1,4 +1,5 @@
 <template>
+  <!-- Holds the menu and the router view-->
   <WebMenu />
   <router-view class="router-container"/>
 </template>

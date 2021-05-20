@@ -1,6 +1,9 @@
 <template>
+  <!--Component for register both ingoing and outgoing stock-->
   <div class="p-d-flex p-flex-column p-ai-center" style="width: 100vw">
+  <!--Header for the register page-->
     <PageHeader :heading="$route.name === 'ingoing' ? 'Registrera ingående saldo' : 'Registrera utgående saldo'" />
+    <!--Card with input fields to register ingoing/outgoing stock-->
     <Card class="register-content-container p-shadow-5">
       <template #content>
         <div class="p-d-flex p-flex-column p-ai-center">
@@ -14,6 +17,7 @@
           </div>
           <Button class="p-button-success" :disabled="selectedProductId === null || selectedWarehouse === null || quantity === null" label="Registrera" @click="submit()" />
         </div>
+        <!--Component with confirmation dialog from PrimeVue--> 
         <ConfirmDialog></ConfirmDialog>
       </template>
     </Card>
@@ -36,6 +40,7 @@ export default {
       quantity: null,
       selectedProductId: null,
       selectedWarehouse: null,
+      // Data for dropdowns
       warehouses: [
         {name: 'Cupertino', value: 'cupertino'},
         {name: 'Norrköping', value: 'norrkoping'},
@@ -57,6 +62,8 @@ export default {
     PageHeader
   },
   methods: {
+    // Function for getting the correct name of the inserted warehouse 
+    // and product to display in the confirmation popup
     findName(valueKey, array) {
       for (var i=0; i < array.length; i++) {
         if (array[i].value === valueKey) {
@@ -64,12 +71,15 @@ export default {
         }
       }
     },
+    // Function for emptying all input fields
     emptyFields() {
       this.quantity = null
       this.selectedProductId = null
       this.selectedWarehouse = null
     },
+    // Function that is called when the "registrera" button is clicked
     submit() {
+      // Finding correct names to display in confirmation popup
       const product = this.findName(this.selectedProductId, this.products)
       const warehouse = this.findName(this.selectedWarehouse, this.warehouses)
       const endRoute = this.$route.name
@@ -79,11 +89,13 @@ export default {
         header: 'Bekräfta',
         acceptLabel: 'Ja',
         rejectLabel: 'Nej',
+        // If confirmed
         accept: () => {
           axios.patch(`http://localhost:8081/products/${this.selectedProductId}/${endRoute}`, 
           { quantityToAdd: parseInt(`${this.quantity}`), warehouse: `${this.selectedWarehouse}` })
           this.emptyFields()
         },
+        // If not confirmed
         reject: () => {
           this.emptyFields()
         }

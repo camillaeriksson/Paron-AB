@@ -1,10 +1,12 @@
 <template>
   <div>
+    <!--Component with top menu from PrimeVue for smaller screens-->
     <Menubar :model="items" class="top-menu">
       <template #end>
         <img src="../assets/small_logo.svg">
       </template>
     </Menubar>
+    <!--Side menu for bigger screens-->
     <div class="side-menu-container">
       <img src="../assets/logo.svg">
       <div class="router-links-container">
@@ -22,6 +24,7 @@ export default {
   name: 'WebMenu',
   data() {
     return {
+      // Items for the top menu from PrimeVue
       items: [
           {
             label:'Lagersaldo',

@@ -1,6 +1,8 @@
 <template>
   <div class="p-d-flex p-flex-column p-ai-center" style="width: 100vw">
+    <!--Header for the stock page-->
     <PageHeader heading="Lagersaldo" />
+    <!--Card with data table to display stock-->
     <Card class="stock-content-container p-shadow-5">
       <template #content>
         <DataTable class="product-data-table" :value="products">
@@ -57,9 +59,11 @@ export default {
     Column
   },
   created() {
+    // Calling API function and setting the response to components data
     this.getAllProducts()
   },
   methods: {
+    // Function for API call
     getAllProducts() {
       axios.get('http://localhost:8081/products')
       .then(response => (this.products = response.data))
@@ -76,6 +80,9 @@ export default {
   }
 }
 .stock-content-container {
+  @media (max-width: 500px) {
+    width: 90%;
+  }
   width: 70%;
   margin-top: 30px;
 }
