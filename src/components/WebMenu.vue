@@ -17,7 +17,7 @@ export default {
 
 <style lang="scss">
 .web-menu-container {
-  height: 100vh;
+  min-height: 100vh;
   width: 25vw;
   background: #699461;
   display: flex;

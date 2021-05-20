@@ -112,10 +112,13 @@ export default {
   .p-inputnumber-input {
     width: 30%;
   }
-  .p-button.p-button-success {
-    background: #699461;
-    border: 1px solid #699461;
-  }
+}
+.p-button.p-confirm-dialog-accept {
+  background: #699461;
+  border: 1px solid #699461;
+}
+.p-button.p-confirm-dialog-reject.p-button-text {
+  color: #699461;
 }
 
 </style>
