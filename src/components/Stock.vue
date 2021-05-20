@@ -6,9 +6,9 @@
         <DataTable class="product-data-table" :value="products">
           <Column field="name" header="Produkt">
             <template #body="{data}">
-              <div class="p-d-flex p-flex-column">
+              <div class="p-d-flex p-flex-column product-container">
                 {{data.name}}
-                <div class="p-d-flex p-flex-wrap">
+                <div class="p-d-flex p-flex-wrap product-information-container">
                   <p>Produktnr: {{data.productnr}}</p> 
                   <p>Pris: {{data.price}} kr</p>
                 </div>
@@ -78,5 +78,15 @@ export default {
 .stock-content-container {
   width: 70%;
   margin-top: 30px;
+}
+.product-information-container {
+  @media (max-width: 960px) {
+    flex-direction: column;
+  }
+}
+.product-container {
+  @media (max-width: 960px) {
+    text-align: right;
+  }
 }
 </style>
