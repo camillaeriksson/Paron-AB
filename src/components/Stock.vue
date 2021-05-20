@@ -1,7 +1,7 @@
 <template>
   <div class="p-d-flex p-flex-column p-ai-center" style="width: 100vw">
     <PageHeader heading="Lagersaldo" />
-    <Card class="stock-content-container">
+    <Card class="stock-content-container p-shadow-5">
       <template #content>
         <DataTable class="product-data-table" :value="products">
           <Column field="name" header="Produkt">

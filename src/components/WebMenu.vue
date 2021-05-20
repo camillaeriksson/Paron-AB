@@ -24,7 +24,7 @@ export default {
   align-items: center;
   flex-direction: column;
   img {
-    margin-top: 40px;
+    margin: 40px 0 30px 0;
     width: 150px;
   }
   i {

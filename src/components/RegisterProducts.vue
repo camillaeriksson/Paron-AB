@@ -1,7 +1,7 @@
 <template>
   <div class="p-d-flex p-flex-column p-ai-center" style="width: 100vw">
     <PageHeader :heading="$route.name === 'ingoing' ? 'Registrera ingående saldo' : 'Registrera utgående saldo'" />
-    <Card class="register-content-container">
+    <Card class="register-content-container p-shadow-5">
       <template #content>
         <div class="p-d-flex p-flex-column p-ai-center">
           <div class="p-d-flex p-jc-evenly" style="width: 100%;">
@@ -101,7 +101,7 @@ export default {
   width: 70%;
   margin-top: 30px;
   button {
-    margin: 20px;
+    margin-top: 20px;
   }
   .p-dropdown {
     width: 30%;
