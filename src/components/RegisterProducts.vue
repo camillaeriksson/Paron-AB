@@ -112,6 +112,10 @@ export default {
   .p-inputnumber-input {
     width: 30%;
   }
+  .p-button.p-button-success {
+    background: #699461;
+    border: 1px solid #699461;
+  }
 }
 
 </style>
