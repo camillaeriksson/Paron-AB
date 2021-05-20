@@ -66,7 +66,11 @@ export default {
     // Function for API call
     getAllProducts() {
       axios.get('http://localhost:8081/products')
-      .then(response => (this.products = response.data))
+      .then((response) => {
+        this.products = response.data
+      }, (error) => {
+        console.log(error)
+      })
     }
   }
 }
