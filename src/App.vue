@@ -14,13 +14,15 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 #app {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
-  display: flex;
-  flex-direction: row;
+  @media (min-width: 961px) {
+    display: flex;
+    flex-direction: row;
+  }
 }
 .router-container {
   width: 80vw;
