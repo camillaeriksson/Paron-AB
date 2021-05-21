@@ -21,6 +21,7 @@
         <ConfirmDialog></ConfirmDialog>
       </template>
     </Card>
+    <!--Component with success popup from PrimeVue-->
     <Toast/>
   </div>    
 </template>
