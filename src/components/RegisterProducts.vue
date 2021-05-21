@@ -21,6 +21,7 @@
         <ConfirmDialog></ConfirmDialog>
       </template>
     </Card>
+    <Toast/>
   </div>    
 </template>
 
@@ -31,6 +32,7 @@ import InputNumber from 'primevue/inputnumber'
 import Button from 'primevue/button'
 import ConfirmDialog from 'primevue/confirmdialog'
 import PageHeader from './PageHeader.vue'
+import Toast from 'primevue/toast'
 import Card from 'primevue/card'
 
 export default {
@@ -59,7 +61,8 @@ export default {
     Button,
     Card,
     ConfirmDialog,
-    PageHeader
+    PageHeader,
+    Toast
   },
   methods: {
     // Function for getting the correct name of the inserted warehouse 
@@ -93,6 +96,7 @@ export default {
         accept: () => {
           axios.patch(`http://localhost:8081/products/${this.selectedProductId}/${endRoute}`, 
           { quantityToAdd: parseInt(`${this.quantity}`), warehouse: `${this.selectedWarehouse}` })
+          this.$toast.add({severity:'success', detail:'Lagersaldo uppdaterat', life: 3000})
           this.emptyFields()
         },
         // If not confirmed

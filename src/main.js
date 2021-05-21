@@ -2,6 +2,7 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import ConfirmationService from 'primevue/confirmationservice'
+import ToastService from 'primevue/toastservice'
 
 import PrimeVue from 'primevue/config'
 
@@ -14,7 +15,8 @@ const app = createApp(App)
 
 app.use(PrimeVue)
 app.use(router)
-app.use(ConfirmationService);
+app.use(ConfirmationService)
+app.use(ToastService)
 
 app.mount('#app')
    
