@@ -22,7 +22,7 @@
       </template>
     </Card>
     <!--Component with success popup from PrimeVue-->
-    <Toast/>
+    <Toast position="center"/>
   </div>    
 </template>
 
